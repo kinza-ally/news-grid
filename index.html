@@ -105,8 +105,26 @@
            <div>
             <h3>Email Newsletter</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <form>
+            <!-- <form>
                 <input type="email" placeholder="Enter Email...">
+                <input type="submit" value="subscribe" class="btn btn-primary">
+            </form> -->
+            <!-- netlify form submission -->
+            <!-- 'POST' sends the form data when the user submits it -->
+             <!-- The name="contact" gives this form a unique name -->
+              <!-- netlify-data="true" tells Netlify to handle this form
+                submission automatically. -->
+                <!-- method="POST" ensures the data is sent via POST request -->
+            <form name="contact" method="POST" netlify-data="true">
+               <!-- The 'name="email"' attribute is necessary because when the form is submitted,
+                it sends the data of this field to the server.Without the 'name' 
+                attribute, the server won't know what data belongs to which field.
+                The 'placeholder' guides the user on what to enter, and the 'required'
+                 attribute ensures the email field is filled out before submission. -->
+                <input type="email" name="email" placeholder="Enter Email...">
+                <!-- The name attribute is not required for the submit button 
+                 (<input type="submit">) because the submit button doesn't send any data to 
+                 the server itself. -->
                 <input type="submit" value="subscribe" class="btn btn-primary">
             </form>
            </div>
