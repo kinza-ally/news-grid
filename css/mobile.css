@@ -1,0 +1,81 @@
+/* for tablets  design menu and homeaticles( 2 column of 1fr) */
+/* not display social media links when the screen is smaller than or equal to 768px */
+.main-nav .social {
+    display: none;
+}
+
+.main-nav .container {
+    /*grid container has one column (1fr) */
+    /* .grid container have only 2 items (logo and ul) will be stacked vertically */
+    grid-template-columns: 1fr;
+    /* Adds a gap of 1rem between grid items */
+    grid-gap: 1rem;
+}
+
+.main-nav ul,
+.main-nav .logo{
+   /* Centers the items horizontally in their grid container */
+    justify-self: center;
+}
+
+.main-nav ul li a {
+    padding: 0.55rem;
+}
+
+#home-articles .articles-container {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#home-articles .articles-container>*:first-child,
+#home-articles .articles-container>*:last-child  {
+    grid-template-columns: 1fr;
+    grid-column: 1;
+}
+
+/* for smartphones  home-articles,showcase,main--footer,page-container set to 1 column of 1fr*/
+/* add bottom border in the footer childs */
+@media(max-width:600px) {
+    #home-articles .articles-container,
+    #showcase .showcase-container,
+    #main-footer .footer-container {
+        grid-template-columns:1fr;
+    }
+    /*because you have something spaning however many columns like 4 columns you cant have  
+    just 1fr its gonna adapt to the whatever amount the column you are spaning    */
+    #main-footer .footer-container > *:last-child {
+        grid-column: 1;
+    }
+/* All the child elements of .footer-container are given a bottom border and padding. */
+/* This makes the sections look separated and clean */
+    /* #main-footer .footer-container > *{
+       border-bottom: 1px dotted #444; */
+       /* border-bottom: 1px dotted yellow; */
+       /* padding-bottom: 1rem; */
+    /* } */
+
+    /* #main-footer .footer-container > *:last-child, */
+    /* 3 child in footer container */
+    /* #main-footer .footer-container > *:nth-child(3), */
+    /* 4 child in footer container */
+    /* #main-footer .footer-container > *:nth-child(4) {
+       border: none;
+    }  */
+/* another way we get the same result */
+    #main-footer .footer-container > *:first-child,
+    #main-footer .footer-container > *:nth-child(2) {
+        border-bottom: 1px dotted #444;
+        /* border-bottom: 1px dotted yellow; */
+        padding-bottom: 1rem;
+    } 
+/* about page */
+    .page-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+}
+.page-container > *:first-child{
+    grid-row: 1 
+}
+.L-heading {
+    font-size: 2rem;
+}
+}
